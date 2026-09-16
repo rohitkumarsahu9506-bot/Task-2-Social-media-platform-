@@ -1,0 +1,374 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f0f2f5;
+    color: #1c1e21;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 65px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #1877f2;
+}
+
+.search-box input {
+    width: 280px;
+    padding: 11px 16px;
+    border: none;
+    outline: none;
+    background: #f0f2f5;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links button {
+    border: none;
+    background: transparent;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.nav-links button:hover {
+    background: #f0f2f5;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #1877f2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #65676b;
+    margin: 5px 0;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+    margin-top: 12px;
+}
+
+.stats span {
+    color: #65676b;
+}
+
+.stats b {
+    color: #1c1e21;
+}
+
+.follow-btn {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.follow-btn:hover {
+    background: #0d65d9;
+}
+
+
+/* =========================
+   CREATE POST
+========================= */
+
+.create-post {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.create-post h3 {
+    margin-bottom: 15px;
+}
+
+.create-post textarea {
+    width: 100%;
+    height: 90px;
+    resize: none;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.create-post textarea:focus {
+    border-color: #1877f2;
+}
+
+.create-post button {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.create-post button:hover {
+    background: #0d65d9;
+}
+
+
+/* =========================
+   POST
+========================= */
+
+.post {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.small-avatar {
+    width: 45px;
+    height: 45px;
+    background: #1877f2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.post-header h3 {
+    font-size: 16px;
+}
+
+.post-header small {
+    color: #65676b;
+}
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+
+/* =========================
+   POST ACTIONS
+========================= */
+
+.post-actions {
+    border-top: 1px solid #dddfe2;
+    border-bottom: 1px solid #dddfe2;
+    padding: 8px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.post-actions button {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.post-actions button:hover {
+    background: #f0f2f5;
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comments {
+    margin-top: 15px;
+}
+
+.comments input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #f0f2f5;
+    padding: 11px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.comment-list {
+    margin-top: 10px;
+}
+
+.comment {
+    background: #f0f2f5;
+    padding: 9px 13px;
+    border-radius: 12px;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #65676b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .search-box input {
+        width: 150px;
+    }
+
+    .nav-links button {
+        padding: 8px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .follow-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .profile-card {
+        padding: 20px 15px;
+    }
+
+    .post {
+        padding: 15px;
+    }
+}

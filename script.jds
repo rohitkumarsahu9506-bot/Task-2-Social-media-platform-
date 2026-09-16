@@ -1,0 +1,271 @@
+// ================================
+// CREATE NEW POST
+// ================================
+
+function createPost() {
+
+    const postText = document.getElementById("postText");
+    const text = postText.value.trim();
+
+    if (text === "") {
+        alert("Please write something before posting!");
+        return;
+    }
+
+    const postsContainer = document.getElementById("postsContainer");
+
+    const post = document.createElement("article");
+    post.className = "post";
+
+    post.innerHTML = `
+        <div class="post-header">
+
+            <div class="small-avatar">RS</div>
+
+            <div>
+                <h3>Rohit Sahu</h3>
+                <small>Just now</small>
+            </div>
+
+        </div>
+
+        <p class="post-content">${escapeHTML(text)}</p>
+
+        <div class="post-actions">
+
+            <button onclick="likePost(this)">
+                ❤️ <span>0</span> Likes
+            </button>
+
+            <button onclick="focusComment(this)">
+                💬 Comment
+            </button>
+
+        </div>
+
+        <div class="comments">
+
+            <input 
+                type="text"
+                placeholder="Write a comment..."
+                onkeypress="addComment(event, this)"
+            >
+
+            <div class="comment-list"></div>
+
+        </div>
+    `;
+
+    postsContainer.prepend(post);
+
+    postText.value = "";
+
+    updatePostCount();
+}
+
+
+// ================================
+// LIKE POST
+// ================================
+
+function likePost(button) {
+
+    const count = button.querySelector("span");
+
+    let likes = parseInt(count.innerText);
+
+    if (button.classList.contains("liked")) {
+
+        likes--;
+
+        button.classList.remove("liked");
+
+    } else {
+
+        likes++;
+
+        button.classList.add("liked");
+
+    }
+
+    count.innerText = likes;
+}
+
+
+// ================================
+// ADD COMMENT
+// ================================
+
+function addComment(event, input) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    const commentText = input.value.trim();
+
+    if (commentText === "") {
+        return;
+    }
+
+    const commentList =
+        input.parentElement.querySelector(".comment-list");
+
+    const comment = document.createElement("div");
+
+    comment.className = "comment";
+
+    comment.innerText = "👤 Rohit Sahu: " + commentText;
+
+    commentList.appendChild(comment);
+
+    input.value = "";
+}
+
+
+// ================================
+// FOCUS COMMENT BOX
+// ================================
+
+function focusComment(button) {
+
+    const post = button.closest(".post");
+
+    const input = post.querySelector(".comments input");
+
+    input.focus();
+}
+
+
+// ================================
+// FOLLOW PROFILE
+// ================================
+
+function toggleProfileFollow() {
+
+    const button =
+        document.getElementById("profileFollowBtn");
+
+    const followingCount =
+        document.getElementById("followingCount");
+
+    let count = parseInt(followingCount.innerText);
+
+    if (button.innerText === "Follow") {
+
+        button.innerText = "Following";
+
+        button.style.background = "#42b72a";
+
+        followingCount.innerText = count + 1;
+
+    } else {
+
+        button.innerText = "Follow";
+
+        button.style.background = "#1877f2";
+
+        followingCount.innerText = count - 1;
+
+    }
+}
+
+
+// ================================
+// UPDATE POST COUNT
+// ================================
+
+function updatePostCount() {
+
+    const posts =
+        document.querySelectorAll("#postsContainer .post");
+
+    document.getElementById("postCount").innerText =
+        posts.length;
+}
+
+
+// ================================
+// SEARCH POSTS
+// ================================
+
+const searchInput =
+    document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function () {
+
+    const searchText =
+        this.value.toLowerCase().trim();
+
+    const posts =
+        document.querySelectorAll("#postsContainer .post");
+
+    posts.forEach(function (post) {
+
+        const content =
+            post.innerText.toLowerCase();
+
+        if (content.includes(searchText)) {
+
+            post.style.display = "block";
+
+        } else {
+
+            post.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+// ================================
+// HOME BUTTON
+// ================================
+
+function showHome() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+// ================================
+// PROFILE BUTTON
+// ================================
+
+function showProfile() {
+
+    const profile =
+        document.querySelector(".profile-card");
+
+    profile.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// ================================
+// SECURITY FUNCTION
+// ================================
+
+function escapeHTML(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+// ================================
+// INITIAL POST COUNT
+// ================================
+
+updatePostCount();
